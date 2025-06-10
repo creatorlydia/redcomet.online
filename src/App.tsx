@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Play, Search, Grid, X, Star, Users, Gamepad2, Home } from 'lucide-react';
 
-// 游戏数据接口
+// Game data interface
 interface Game {
   id: string;
   title: string;
@@ -15,12 +15,12 @@ interface Game {
   featured: boolean;
 }
 
-// 示例游戏数据 - 你可以根据需要添加更多游戏
+// Sample game data - you can add more games as needed
 const gamesData: Game[] = [
   {
     id: 'red-comet',
     title: 'Red Comet: Monster Survival',
-    description: '在这款史诗般的浏览器生存射击游戏中，抵御无尽的怪物潮',
+    description: 'Defend against endless waves of monsters in this epic browser survival shooter game',
     iframeUrl: 'https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html',
     category: 'Action',
     thumbnail: 'https://via.placeholder.com/400x300/3B82F6/ffffff?text=Red+Comet',
@@ -32,7 +32,7 @@ const gamesData: Game[] = [
   {
     id: 'puzzle-master',
     title: 'Puzzle Master',
-    description: '挑战你的智力，解决各种复杂的拼图谜题',
+    description: 'Challenge your mind with complex puzzles and brain-teasing riddles',
     iframeUrl: 'YOUR_PUZZLE_GAME_IFRAME_URL',
     category: 'Puzzle',
     thumbnail: 'https://via.placeholder.com/400x300/10B981/ffffff?text=Puzzle+Master',
@@ -44,7 +44,7 @@ const gamesData: Game[] = [
   {
     id: 'racing-champion',
     title: 'Racing Champion',
-    description: '极速赛车游戏，体验最刺激的赛道竞技',
+    description: 'Experience the most thrilling racing action on exciting tracks',
     iframeUrl: 'YOUR_RACING_GAME_IFRAME_URL',
     category: 'Racing',
     thumbnail: 'https://via.placeholder.com/400x300/EF4444/ffffff?text=Racing+Champion',
@@ -56,7 +56,7 @@ const gamesData: Game[] = [
   {
     id: 'adventure-quest',
     title: 'Adventure Quest',
-    description: '踏上史诗般的冒险之旅，探索神秘的世界',
+    description: 'Embark on an epic journey and explore mysterious worlds',
     iframeUrl: 'YOUR_ADVENTURE_GAME_IFRAME_URL',
     category: 'Adventure',
     thumbnail: 'https://via.placeholder.com/400x300/F59E0B/ffffff?text=Adventure+Quest',
@@ -68,7 +68,7 @@ const gamesData: Game[] = [
   {
     id: 'strategy-war',
     title: 'Strategy War',
-    description: '建立你的帝国，在战略战争中取得胜利',
+    description: 'Build your empire and achieve victory in strategic warfare',
     iframeUrl: 'YOUR_STRATEGY_GAME_IFRAME_URL',
     category: 'Strategy',
     thumbnail: 'https://via.placeholder.com/400x300/8B5CF6/ffffff?text=Strategy+War',
@@ -80,7 +80,7 @@ const gamesData: Game[] = [
   {
     id: 'casual-bubble',
     title: 'Casual Bubble Pop',
-    description: '轻松休闲的泡泡消除游戏，适合所有年龄段',
+    description: 'Relaxing bubble popping game perfect for players of all ages',
     iframeUrl: 'YOUR_CASUAL_GAME_IFRAME_URL',
     category: 'Casual',
     thumbnail: 'https://via.placeholder.com/400x300/EC4899/ffffff?text=Bubble+Pop',
@@ -91,8 +91,8 @@ const gamesData: Game[] = [
   },
   {
     id: 'tetris-classic',
-    title: '俄罗斯方块经典版',
-    description: '经典的俄罗斯方块游戏，考验你的空间思维和反应能力',
+    title: 'Tetris Classic',
+    description: 'The classic Tetris game that tests your spatial thinking and reflexes',
     iframeUrl: 'https://tetris.com/games-content/play-tetris-content/tetris.html',
     category: 'Puzzle',
     thumbnail: 'https://via.placeholder.com/400x300/7C3AED/ffffff?text=Tetris+Classic',
@@ -111,7 +111,7 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
-  // 过滤游戏
+  // Filter games
   const filteredGames = gamesData.filter(game => {
     const matchesCategory = selectedCategory === 'All' || game.category === selectedCategory;
     const matchesSearch = game.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -154,7 +154,7 @@ function App() {
                 }`}
               >
                 <Home className="w-4 h-4" />
-                <span className="hidden sm:inline">主页</span>
+                <span className="hidden sm:inline">Home</span>
               </button>
               <button
                 onClick={() => setCurrentView('games')}
@@ -165,7 +165,7 @@ function App() {
                 }`}
               >
                 <Grid className="w-4 h-4" />
-                <span className="hidden sm:inline">所有游戏</span>
+                <span className="hidden sm:inline">All Games</span>
               </button>
             </div>
           </div>
@@ -185,7 +185,7 @@ function App() {
                   </span>
                 </h1>
                 <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-                  发现最棒的在线游戏集合，从动作冒险到益智休闲，应有尽有
+                  Discover the ultimate collection of online games, from action-packed adventures to relaxing puzzles
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
                   <button
@@ -193,67 +193,99 @@ function App() {
                     className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 transform hover:scale-105 hover:shadow-xl flex items-center space-x-2 group"
                   >
                     <Play className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    <span>开始游戏</span>
+                    <span>Start Playing</span>
                   </button>
                   <div className="flex items-center space-x-4 text-gray-600">
                     <div className="flex items-center space-x-1">
-                      <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                      <span className="text-sm font-medium">免费游戏</span>
+                      <Users className="w-5 h-5" />
+                      <span className="font-medium">10M+ Players</span>
                     </div>
-                    <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                    <span className="text-sm">{gamesData.length}+ 游戏</span>
+                    <div className="flex items-center space-x-1">
+                      <Star className="w-5 h-5 text-yellow-400" />
+                      <span className="font-medium">4.8 Rating</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Featured Games */}
-          <section className="py-16 lg:py-24 bg-white">
+          {/* Features Section */}
+          <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                  精选游戏
+              <div className="text-center mb-16">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                  Why Choose Red Comet Games?
                 </h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  体验我们最受欢迎和评分最高的游戏
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  Experience the best in online gaming with our carefully curated collection
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center p-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Play className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Instant Play</h3>
+                  <p className="text-gray-600">No downloads required. Play directly in your browser with just one click.</p>
+                </div>
+                <div className="text-center p-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Premium Quality</h3>
+                  <p className="text-gray-600">Handpicked games ensuring the highest quality entertainment experience.</p>
+                </div>
+                <div className="text-center p-6">
+                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Community</h3>
+                  <p className="text-gray-600">Join millions of players in our thriving gaming community.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Games Section */}
+          <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                  Featured Games
+                </h2>
+                <p className="text-xl text-gray-600">
+                  Discover our most popular and highly-rated games
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {featuredGames.map((game) => (
                   <div
                     key={game.id}
-                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group cursor-pointer"
+                    className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer group"
                     onClick={() => openGame(game)}
                   >
                     <div className="relative">
                       <img
                         src={game.thumbnail}
                         alt={game.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-40 object-cover group-hover:scale-110 transition-transform duration-300"
                       />
-                      <div className="absolute top-4 right-4 bg-yellow-500 text-white px-2 py-1 rounded-full text-sm font-medium">
-                        精选
+                      <div className="absolute top-3 right-3 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-medium">
+                        ⭐ {game.rating}
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <div className="p-4">
+                      <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                         {game.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-sm mb-3 line-clamp-2">
                         {game.description}
                       </p>
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4 text-sm text-gray-500">
-                          <div className="flex items-center space-x-1">
-                            <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                            <span>{game.rating}</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <Users className="w-4 h-4" />
-                            <span>{game.plays}</span>
-                          </div>
+                        <div className="flex items-center space-x-1 text-gray-500 text-sm">
+                          <Users className="w-4 h-4" />
+                          <span>{game.plays}</span>
                         </div>
                         <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium">
                           {game.category}
@@ -263,38 +295,13 @@ function App() {
                   </div>
                 ))}
               </div>
-              
               <div className="text-center mt-12">
                 <button
                   onClick={() => setCurrentView('games')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
                 >
-                  查看所有游戏
+                  View All Games
                 </button>
-              </div>
-            </div>
-          </section>
-
-          {/* Stats Section */}
-          <section className="py-16 bg-gray-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{gamesData.length}+</div>
-                  <div className="text-gray-600">游戏总数</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-600 mb-2">{categories.length - 1}</div>
-                  <div className="text-gray-600">游戏分类</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">5M+</div>
-                  <div className="text-gray-600">总游戏次数</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-red-600 mb-2">100%</div>
-                  <div className="text-gray-600">免费游戏</div>
-                </div>
               </div>
             </div>
           </section>
@@ -303,136 +310,139 @@ function App() {
 
       {/* Games View */}
       {currentView === 'games' && (
-        <section className="py-12 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Search and Filter Bar */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-              <div className="flex flex-col lg:flex-row gap-4 items-center">
-                {/* Search */}
-                <div className="relative flex-1 w-full lg:w-auto">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
-                    type="text"
-                    placeholder="搜索游戏..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                </div>
-                
-                {/* Category Filter */}
-                <div className="flex gap-2 overflow-x-auto">
-                  {categories.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => setSelectedCategory(category)}
-                      className={`whitespace-nowrap px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
-                        selectedCategory === category
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                    >
-                      {category === 'All' ? '全部' : category}
-                    </button>
-                  ))}
-                </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Search and Filter Bar */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <div className="flex flex-col lg:flex-row gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search games..."
+                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
               
-              {/* Results count */}
-              <div className="mt-4 text-sm text-gray-600">
-                找到 {filteredGames.length} 款游戏
+              {/* Category Filter */}
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
+                      selectedCategory === category
+                        ? 'bg-blue-600 text-white shadow-lg'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
               </div>
             </div>
+            
+            <div className="mt-4 text-gray-600">
+              Found {filteredGames.length} games
+            </div>
+          </div>
 
-            {/* Games Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredGames.map((game) => (
-                <div
-                  key={game.id}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group cursor-pointer"
-                  onClick={() => openGame(game)}
-                >
-                  <div className="relative">
-                    <img
-                      src={game.thumbnail}
-                      alt={game.title}
-                      className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    {game.featured && (
-                      <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-lg text-xs font-medium">
-                        精选
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                      <Play className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
+          {/* Games Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredGames.map((game) => (
+              <div
+                key={game.id}
+                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden cursor-pointer group"
+                onClick={() => openGame(game)}
+              >
+                <div className="relative">
+                  <img
+                    src={game.thumbnail}
+                    alt={game.title}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <Play className="w-12 h-12 text-white" />
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                      {game.title}
-                    </h3>
-                    <p className="text-gray-600 mb-3 text-sm leading-relaxed line-clamp-2">
-                      {game.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-3 text-xs text-gray-500">
-                        <div className="flex items-center space-x-1">
-                          <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                          <span>{game.rating}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Users className="w-3 h-3" />
-                          <span>{game.plays}</span>
-                        </div>
-                      </div>
-                      <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-lg text-xs font-medium">
-                        {game.category}
+                  <div className="absolute top-3 right-3 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-medium">
+                    ⭐ {game.rating}
+                  </div>
+                  {game.featured && (
+                    <div className="absolute top-3 left-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                      FEATURED
+                    </div>
+                  )}
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {game.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                    {game.description}
+                  </p>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center space-x-1 text-gray-500 text-sm">
+                      <Users className="w-4 h-4" />
+                      <span>{game.plays}</span>
+                    </div>
+                    <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium">
+                      {game.category}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1">
+                    {game.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs"
+                      >
+                        {tag}
                       </span>
-                    </div>
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {game.tags.slice(0, 2).map((tag, index) => (
-                        <span
-                          key={index}
-                          className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* No results */}
-            {filteredGames.length === 0 && (
-              <div className="text-center py-12">
-                <Gamepad2 className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">未找到游戏</h3>
-                <p className="text-gray-600">尝试调整搜索条件或选择不同的分类</p>
               </div>
-            )}
+            ))}
           </div>
-        </section>
+
+          {/* No Results */}
+          {filteredGames.length === 0 && (
+            <div className="text-center py-16">
+              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Search className="w-12 h-12 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No games found</h3>
+              <p className="text-gray-600 mb-4">Try adjusting your search or filter criteria</p>
+              <button
+                onClick={() => {
+                  setSearchTerm('');
+                  setSelectedCategory('All');
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-medium transition-colors"
+              >
+                Clear Filters
+              </button>
+            </div>
+          )}
+        </div>
       )}
 
       {/* Game Modal */}
       {selectedGame && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden">
-            {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden relative">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">{selectedGame.title}</h2>
-                <div className="flex items-center space-x-4 mt-2 text-sm text-gray-600">
-                  <div className="flex items-center space-x-1">
-                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                    <span>{selectedGame.rating}/5</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
+                <h2 className="text-xl font-bold text-gray-900">{selectedGame.title}</h2>
+                <div className="flex items-center space-x-4 text-sm text-gray-600 mt-1">
+                  <span className="flex items-center space-x-1">
+                    <Star className="w-4 h-4 text-yellow-400" />
+                    <span>{selectedGame.rating}</span>
+                  </span>
+                  <span className="flex items-center space-x-1">
                     <Users className="w-4 h-4" />
-                    <span>{selectedGame.plays} 次游玩</span>
-                  </div>
+                    <span>{selectedGame.plays} plays</span>
+                  </span>
                   <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium">
                     {selectedGame.category}
                   </span>
@@ -440,21 +450,17 @@ function App() {
               </div>
               <button
                 onClick={closeGame}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 text-gray-600" />
               </button>
             </div>
-            
-            {/* Game iframe */}
-            <div className="relative bg-gray-900" style={{ height: 'calc(90vh - 120px)' }}>
+            <div className="aspect-video">
               <iframe
                 src={selectedGame.iframeUrl}
-                className="w-full h-full"
-                frameBorder="0"
+                className="w-full h-full border-0"
                 allowFullScreen
                 title={selectedGame.title}
-                loading="lazy"
               />
             </div>
           </div>
@@ -466,15 +472,15 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Gamepad2 className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                <Gamepad2 className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">Red Comet Games</span>
+              <span className="text-2xl font-bold">Red Comet Games</span>
             </div>
             <p className="text-gray-400 mb-4">
-              发现最棒的在线游戏体验
+              The ultimate destination for online gaming entertainment
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-gray-500 text-sm">
               © 2025 Red Comet Games. All rights reserved.
             </p>
           </div>
