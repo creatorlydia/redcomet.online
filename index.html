@@ -119,6 +119,25 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
         
+        .game-card.featured {
+            border: 3px solid #ffd700;
+            position: relative;
+        }
+        
+        .game-card.featured::before {
+            content: "🔥 FEATURED";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #ffd700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
         .game-header {
             padding: 20px;
             background: linear-gradient(45deg, #667eea, #764ba2);
@@ -264,6 +283,7 @@
             flex: 1;
             border: none;
             width: 100%;
+            height: 100%;
         }
         
         .stats {
@@ -379,7 +399,7 @@
                 <h2 class="modal-title" id="modalTitle">Game Title</h2>
                 <button class="close-btn" onclick="closeGame()">&times;</button>
             </div>
-            <iframe class="game-frame" id="gameFrame" src=""></iframe>
+            <iframe class="game-frame" id="gameFrame" src="" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
         </div>
     </div>
     
@@ -393,67 +413,79 @@
                 id: 1,
                 name: "Street Food Simulator",
                 iframe: "https://www.crazygames.com/embed/street-food-simulator",
-                category: "simulation"
+                category: "simulation",
+                featured: true,
+                description: "🍔 Run your own street food business! Cook delicious meals and serve hungry customers in this exciting simulation game."
             },
             {
                 id: 2,
                 name: "Gaz to the Moon",
                 iframe: "https://www.crazygames.com/embed/gaz-to-the-moon",
-                category: "casual"
+                category: "casual",
+                description: "🚀 Help Gaz reach the moon in this fun adventure game!"
             },
             {
                 id: 3,
                 name: "Fortzone Battle Royale",
                 iframe: "https://www.crazygames.com/embed/fortzone-battle-royale-xkd",
-                category: "shooting"
+                category: "shooting",
+                description: "⚔️ Battle royale action with intense combat and strategy!"
             },
             {
                 id: 4,
                 name: "Slice Master",
                 iframe: "https://www.crazygames.com/embed/slice-master",
-                category: "casual"
+                category: "casual",
+                description: "🔪 Master the art of slicing in this satisfying puzzle game!"
             },
             {
                 id: 5,
                 name: "Count Masters: Stickman Games",
                 iframe: "https://www.crazygames.com/embed/count-masters-stickman-games",
-                category: "casual"
+                category: "casual",
+                description: "🏃 Lead your stickman army to victory in this exciting runner!"
             },
             {
                 id: 6,
                 name: "Supermarket Simulator: Store Manager",
                 iframe: "https://www.crazygames.com/embed/supermarket-simulator-cashier-game",
-                category: "simulation"
+                category: "simulation",
+                description: "🛒 Manage your own supermarket and become a retail tycoon!"
             },
             {
                 id: 7,
                 name: "Dalgona Candy",
                 iframe: "https://www.crazygames.com/embed/dalgona-candy-honeycomb-cookie-kam",
-                category: "casual"
+                category: "casual",
+                description: "🍯 Create perfect dalgona candy shapes in this precise game!"
             },
             {
                 id: 8,
                 name: "Night City Racing",
                 iframe: "https://www.crazygames.com/embed/night-city-racing",
-                category: "driving"
+                category: "driving",
+                description: "🏎️ Race through neon-lit streets in this thrilling racing game!"
             },
             {
                 id: 9,
                 name: "Bus Driver",
                 iframe: "https://www.crazygames.com/embed/city-bus-driver",
-                category: "driving"
+                category: "driving",
+                description: "🚌 Drive city buses and transport passengers safely!"
             },
             {
                 id: 10,
                 name: "Granny's Return",
                 iframe: "https://www.crazygames.com/embed/bad-cat---granny-s-return",
-                category: "casual"
+                category: "casual",
+                description: "🐱 Help the mischievous cat in this fun adventure!"
             },
             {
                 id: 11,
                 name: "Mean Girls Graduation Day",
                 iframe: "https://www.crazygames.com/embed/mean-girls-graduation-day",
-                category: "beauty"
+                category: "beauty",
+                description: "💄 Style and dress up for the perfect graduation day!"
             }
         ];
         
@@ -469,7 +501,7 @@
             const gamesGrid = document.getElementById('gamesGrid');
             
             gamesGrid.innerHTML = gamesToShow.map(game => `
-                <div class="game-card" data-category="${game.category}">
+                <div class="game-card ${game.featured ? 'featured' : ''}" data-category="${game.category}">
                     <div class="game-header">
                         <div class="game-title">${game.name}</div>
                         <span class="game-category">${getCategoryName(game.category)}</span>
