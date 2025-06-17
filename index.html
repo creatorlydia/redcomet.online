@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>在线游戏平台</title>
+    <title>Online Gaming Platform - Free Games</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-02KTJL17PR"></script>
@@ -11,13 +11,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-02KTJL17PR');
     </script>
     
     <!-- Plausible Analytics -->
     <script defer data-domain="redcomet.online" src="https://plausible.io/js/script.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         * {
@@ -27,14 +29,15 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
+            line-height: 1.6;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -42,118 +45,168 @@
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding: 40px 20px;
         }
         
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
         }
         
         .header p {
-            font-size: 1.2em;
+            font-size: 1.4em;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .filter-section {
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .filter-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
             justify-content: center;
         }
         
         .filter-btn {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             background: #667eea;
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .filter-btn:hover, .filter-btn.active {
             background: #764ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
         
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
         
         .game-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             cursor: pointer;
         }
         
         .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
         
         .game-header {
-            padding: 15px;
+            padding: 20px;
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
+            position: relative;
         }
         
         .game-title {
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .game-category {
             display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
+            background: rgba(255,255,255,0.25);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
             text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
         
         .game-preview {
-            height: 250px;
+            height: 280px;
             position: relative;
-            background: #f0f0f0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
         }
         
         .play-button {
-            background: #667eea;
+            background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 16px;
+            padding: 18px 40px;
+            border-radius: 30px;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
         
         .play-button:hover {
-            background: #764ba2;
             transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .share-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        .share-btn.facebook { color: #1877f2; }
+        .share-btn.twitter { color: #1da1f2; }
+        .share-btn.whatsapp { color: #25d366; }
+        .share-btn.copy { color: #667eea; }
+        
+        .share-btn.facebook:hover { background: #1877f2; color: white; }
+        .share-btn.twitter:hover { background: #1da1f2; color: white; }
+        .share-btn.whatsapp:hover { background: #25d366; color: white; }
+        .share-btn.copy:hover { background: #667eea; color: white; }
         
         .game-modal {
             display: none;
@@ -162,7 +215,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
             z-index: 1000;
             padding: 20px;
         }
@@ -171,14 +224,15 @@
             background: white;
             width: 100%;
             height: 100%;
-            border-radius: 10px;
+            border-radius: 15px;
             display: flex;
             flex-direction: column;
             position: relative;
+            overflow: hidden;
         }
         
         .modal-header {
-            padding: 15px;
+            padding: 20px;
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             display: flex;
@@ -186,13 +240,24 @@
             align-items: center;
         }
         
+        .modal-title {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
         .close-btn {
             background: none;
             border: none;
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
-            padding: 5px;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255,255,255,0.2);
         }
         
         .game-frame {
@@ -203,15 +268,41 @@
         
         .stats {
             background: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
         }
         
         .stats h3 {
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .stats p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            opacity: 0.8;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: none;
+            z-index: 1001;
         }
         
         @media (max-width: 768px) {
@@ -225,7 +316,26 @@
             }
             
             .filter-btn {
-                width: 200px;
+                width: 220px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .header p {
+                font-size: 1.1em;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .game-card {
+                margin: 0 10px;
             }
         }
     </style>
@@ -233,100 +343,114 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎮 在线游戏平台</h1>
-            <p>精选优质游戏，即点即玩</p>
+            <h1>🎮 Free Online Games</h1>
+            <p>Play the best free games instantly - No downloads required!</p>
         </div>
         
         <div class="filter-section">
             <div class="filter-buttons">
-                <button class="filter-btn active" data-category="all">全部游戏</button>
-                <button class="filter-btn" data-category="causal">休闲游戏</button>
-                <button class="filter-btn" data-category="shooting">射击游戏</button>
-                <button class="filter-btn" data-category="driving">驾驶游戏</button>
-                <button class="filter-btn" data-category="beauty">美妆游戏</button>
+                <button class="filter-btn active" data-category="all">All Games</button>
+                <button class="filter-btn" data-category="casual">Casual</button>
+                <button class="filter-btn" data-category="shooting">Shooting</button>
+                <button class="filter-btn" data-category="driving">Driving</button>
+                <button class="filter-btn" data-category="simulation">Simulation</button>
+                <button class="filter-btn" data-category="beauty">Beauty</button>
             </div>
         </div>
         
         <div class="games-grid" id="gamesGrid">
-            <!-- 游戏卡片将通过JavaScript动态生成 -->
+            <!-- Game cards will be dynamically generated by JavaScript -->
         </div>
         
         <div class="stats">
-            <h3>游戏统计</h3>
-            <p>总游戏数: <span id="totalGames">10</span> | 今日游玩次数: <span id="playCount">0</span></p>
+            <h3>🎯 Game Statistics</h3>
+            <p>Total Games: <span id="totalGames">11</span> | Games Played Today: <span id="playCount">0</span></p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 Online Gaming Platform - Enjoy gaming responsibly!</p>
         </div>
     </div>
     
-    <!-- 游戏模态框 -->
+    <!-- Game Modal -->
     <div class="game-modal" id="gameModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">游戏标题</h2>
+                <h2 class="modal-title" id="modalTitle">Game Title</h2>
                 <button class="close-btn" onclick="closeGame()">&times;</button>
             </div>
             <iframe class="game-frame" id="gameFrame" src=""></iframe>
         </div>
     </div>
     
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+    
     <script>
-        // 游戏数据
+        // Game data
         const games = [
             {
                 id: 1,
-                name: "Gaz to the Moon",
-                iframe: "https://www.crazygames.com/embed/gaz-to-the-moon",
-                category: "causal"
+                name: "Street Food Simulator",
+                iframe: "https://www.crazygames.com/embed/street-food-simulator",
+                category: "simulation"
             },
             {
                 id: 2,
+                name: "Gaz to the Moon",
+                iframe: "https://www.crazygames.com/embed/gaz-to-the-moon",
+                category: "casual"
+            },
+            {
+                id: 3,
                 name: "Fortzone Battle Royale",
                 iframe: "https://www.crazygames.com/embed/fortzone-battle-royale-xkd",
                 category: "shooting"
             },
             {
-                id: 3,
+                id: 4,
                 name: "Slice Master",
                 iframe: "https://www.crazygames.com/embed/slice-master",
-                category: "causal"
-            },
-            {
-                id: 4,
-                name: "Count Masters: Stickman Games",
-                iframe: "https://www.crazygames.com/embed/count-masters-stickman-games",
-                category: "causal"
+                category: "casual"
             },
             {
                 id: 5,
-                name: "Supermarket Simulator: Store Manager",
-                iframe: "https://www.crazygames.com/embed/supermarket-simulator-cashier-game",
-                category: "causal"
+                name: "Count Masters: Stickman Games",
+                iframe: "https://www.crazygames.com/embed/count-masters-stickman-games",
+                category: "casual"
             },
             {
                 id: 6,
-                name: "Dalgona Candy",
-                iframe: "https://www.crazygames.com/embed/dalgona-candy-honeycomb-cookie-kam",
-                category: "causal"
+                name: "Supermarket Simulator: Store Manager",
+                iframe: "https://www.crazygames.com/embed/supermarket-simulator-cashier-game",
+                category: "simulation"
             },
             {
                 id: 7,
+                name: "Dalgona Candy",
+                iframe: "https://www.crazygames.com/embed/dalgona-candy-honeycomb-cookie-kam",
+                category: "casual"
+            },
+            {
+                id: 8,
                 name: "Night City Racing",
                 iframe: "https://www.crazygames.com/embed/night-city-racing",
                 category: "driving"
             },
             {
-                id: 8,
+                id: 9,
                 name: "Bus Driver",
                 iframe: "https://www.crazygames.com/embed/city-bus-driver",
                 category: "driving"
             },
             {
-                id: 9,
+                id: 10,
                 name: "Granny's Return",
                 iframe: "https://www.crazygames.com/embed/bad-cat---granny-s-return",
-                category: "causal"
+                category: "casual"
             },
             {
-                id: 10,
+                id: 11,
                 name: "Mean Girls Graduation Day",
                 iframe: "https://www.crazygames.com/embed/mean-girls-graduation-day",
                 category: "beauty"
@@ -336,10 +460,11 @@
         let currentFilter = 'all';
         let playCount = parseInt(localStorage.getItem('playCount')) || 0;
         
-        // 更新游玩次数显示
+        // Update play count display
         document.getElementById('playCount').textContent = playCount;
+        document.getElementById('totalGames').textContent = games.length;
         
-        // 渲染游戏网格
+        // Render games grid
         function renderGames(gamesToShow = games) {
             const gamesGrid = document.getElementById('gamesGrid');
             
@@ -351,52 +476,105 @@
                     </div>
                     <div class="game-preview">
                         <button class="play-button" onclick="playGame(${game.id}, '${game.name}', '${game.iframe}')">
-                            ▶ 开始游戏
+                            ▶ Play Game
                         </button>
+                        <div class="share-buttons">
+                            <div class="share-btn facebook" onclick="shareGame('facebook', '${game.name}', ${game.id})" title="Share on Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="share-btn twitter" onclick="shareGame('twitter', '${game.name}', ${game.id})" title="Share on Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="share-btn whatsapp" onclick="shareGame('whatsapp', '${game.name}', ${game.id})" title="Share on WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="share-btn copy" onclick="copyGameLink('${game.name}', ${game.id})" title="Copy Link">
+                                <i class="fas fa-link"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `).join('');
         }
         
-        // 获取分类中文名
+        // Get category display name
         function getCategoryName(category) {
             const categoryNames = {
-                'causal': '休闲',
-                'shooting': '射击',
-                'driving': '驾驶',
-                'beauty': '美妆'
+                'casual': 'Casual',
+                'shooting': 'Shooting',
+                'driving': 'Driving',
+                'simulation': 'Simulation',
+                'beauty': 'Beauty'
             };
             return categoryNames[category] || category;
         }
         
-        // 筛选游戏
+        // Filter games
         function filterGames(category) {
             currentFilter = category;
             const filteredGames = category === 'all' ? games : games.filter(game => game.category === category);
             renderGames(filteredGames);
             
-            // 更新按钮状态
+            // Update button states
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.querySelector(`[data-category="${category}"]`).classList.add('active');
             
-            // 发送筛选事件到Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'game_filter', {
-                    'event_category': 'Games',
-                    'event_label': category,
-                    'value': 1
-                });
-            }
-            
-            // 发送筛选事件到Plausible
+            // Send filter event to Plausible
             if (window.plausible) {
                 window.plausible('Game Filter', {props: {category: category}});
             }
         }
         
-        // 播放游戏
+        // Share game function
+        function shareGame(platform, gameName, gameId) {
+            const url = window.location.href;
+            const text = `Check out this awesome game: ${gameName}!`;
+            
+            switch(platform) {
+                case 'facebook':
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank');
+                    break;
+                case 'twitter':
+                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                    break;
+                case 'whatsapp':
+                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                    break;
+            }
+            
+            // Track share event
+            if (window.plausible) {
+                window.plausible('Game Share', {props: {platform: platform, game: gameName}});
+            }
+        }
+        
+        // Copy game link
+        function copyGameLink(gameName, gameId) {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('Link copied to clipboard!');
+                
+                // Track copy event
+                if (window.plausible) {
+                    window.plausible('Game Link Copy', {props: {game: gameName}});
+                }
+            });
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Play game
         function playGame(gameId, gameName, gameUrl) {
             const modal = document.getElementById('gameModal');
             const modalTitle = document.getElementById('modalTitle');
@@ -406,109 +584,70 @@
             gameFrame.src = gameUrl;
             modal.style.display = 'block';
             
-            // 增加游玩次数
+            // Increment play count
             playCount++;
             localStorage.setItem('playCount', playCount);
             document.getElementById('playCount').textContent = playCount;
             
-            // 发送游戏开始事件到Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'game_start', {
-                    'event_category': 'Games',
-                    'event_label': gameName,
-                    'game_id': gameId,
-                    'value': 1
-                });
-            }
-            
-            // 发送游戏开始事件到Plausible
+            // Send game play event to Plausible
             if (window.plausible) {
                 window.plausible('Game Play', {props: {game: gameName, gameId: gameId}});
             }
             
-            // 阻止页面滚动
+            // Prevent page scrolling
             document.body.style.overflow = 'hidden';
         }
         
-        // 关闭游戏
+        // Close game
         function closeGame() {
             const modal = document.getElementById('gameModal');
             const gameFrame = document.getElementById('gameFrame');
-            const currentGameName = document.getElementById('modalTitle').textContent;
             
             modal.style.display = 'none';
             gameFrame.src = '';
             
-            // 恢复页面滚动
+            // Restore page scrolling
             document.body.style.overflow = 'auto';
             
-            // 发送游戏关闭事件到Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'game_close', {
-                    'event_category': 'Games',
-                    'event_label': currentGameName,
-                    'value': 1
-                });
-            }
-            
-            // 发送游戏关闭事件到Plausible
+            // Send game close event to Plausible
             if (window.plausible) {
                 window.plausible('Game Close');
             }
         }
         
-        // 添加筛选按钮事件监听
+        // Add filter button event listeners
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 filterGames(btn.dataset.category);
             });
         });
         
-        // ESC键关闭游戏
+        // ESC key to close game
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeGame();
             }
         });
         
-        // 点击模态框背景关闭游戏
+        // Click modal background to close game
         document.getElementById('gameModal').addEventListener('click', (e) => {
             if (e.target.id === 'gameModal') {
                 closeGame();
             }
         });
         
-        // 页面加载时初始化
+        // Initialize on page load
         window.addEventListener('load', () => {
             renderGames();
             
-            // 发送页面访问事件到Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'page_view', {
-                    'event_category': 'Engagement',
-                    'event_label': 'Games Page',
-                    'value': 1
-                });
-            }
-            
-            // 发送页面访问事件到Plausible
+            // Send page view event to Plausible
             if (window.plausible) {
                 window.plausible('pageview');
             }
         });
         
-        // 页面离开时发送事件
+        // Send event on page leave
         window.addEventListener('beforeunload', () => {
-            // 发送页面离开事件到Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'page_leave', {
-                    'event_category': 'Engagement',
-                    'event_label': 'Games Page',
-                    'play_count': playCount,
-                    'value': 1
-                });
-            }
-            
             if (window.plausible) {
                 window.plausible('Page Leave', {props: {playCount: playCount}});
             }
