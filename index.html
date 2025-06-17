@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>在线游戏平台</title>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-02KTJL17PR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-02KTJL17PR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-02KTJL17PR');
-</script>
+      gtag('config', 'G-02KTJL17PR');
+    </script>
     
     <!-- Plausible Analytics -->
     <script defer data-domain="redcomet.online" src="https://plausible.io/js/script.outbound-links.js"></script>
@@ -381,6 +381,15 @@
             });
             document.querySelector(`[data-category="${category}"]`).classList.add('active');
             
+            // 发送筛选事件到Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'game_filter', {
+                    'event_category': 'Games',
+                    'event_label': category,
+                    'value': 1
+                });
+            }
+            
             // 发送筛选事件到Plausible
             if (window.plausible) {
                 window.plausible('Game Filter', {props: {category: category}});
@@ -402,6 +411,16 @@
             localStorage.setItem('playCount', playCount);
             document.getElementById('playCount').textContent = playCount;
             
+            // 发送游戏开始事件到Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'game_start', {
+                    'event_category': 'Games',
+                    'event_label': gameName,
+                    'game_id': gameId,
+                    'value': 1
+                });
+            }
+            
             // 发送游戏开始事件到Plausible
             if (window.plausible) {
                 window.plausible('Game Play', {props: {game: gameName, gameId: gameId}});
@@ -415,12 +434,22 @@
         function closeGame() {
             const modal = document.getElementById('gameModal');
             const gameFrame = document.getElementById('gameFrame');
+            const currentGameName = document.getElementById('modalTitle').textContent;
             
             modal.style.display = 'none';
             gameFrame.src = '';
             
             // 恢复页面滚动
             document.body.style.overflow = 'auto';
+            
+            // 发送游戏关闭事件到Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'game_close', {
+                    'event_category': 'Games',
+                    'event_label': currentGameName,
+                    'value': 1
+                });
+            }
             
             // 发送游戏关闭事件到Plausible
             if (window.plausible) {
@@ -453,6 +482,15 @@
         window.addEventListener('load', () => {
             renderGames();
             
+            // 发送页面访问事件到Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Games Page',
+                    'value': 1
+                });
+            }
+            
             // 发送页面访问事件到Plausible
             if (window.plausible) {
                 window.plausible('pageview');
@@ -461,6 +499,16 @@
         
         // 页面离开时发送事件
         window.addEventListener('beforeunload', () => {
+            // 发送页面离开事件到Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_leave', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Games Page',
+                    'play_count': playCount,
+                    'value': 1
+                });
+            }
+            
             if (window.plausible) {
                 window.plausible('Page Leave', {props: {playCount: playCount}});
             }
