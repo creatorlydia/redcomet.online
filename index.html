@@ -30,9 +30,10 @@
         
         body {
             font-family: 'Roboto', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            background: #0a0a0a;
+            background-image: linear-gradient(135deg, #0f1419 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
-            color: #e8e8f0;
+            color: #ffffff;
             line-height: 1.6;
         }
         
@@ -52,9 +53,9 @@
         .header h1 {
             font-size: 3.5em;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
             font-weight: 700;
-            background: linear-gradient(45deg, #64b5f6, #42a5f5, #1e88e5);
+            background: linear-gradient(45deg, #00d4ff, #0099cc, #0066ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -65,15 +66,15 @@
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
-            color: #b0b8c4;
+            color: #cccccc;
         }
         
         .filter-section {
-            background: linear-gradient(145deg, #1e1e3f, #2a2a4a);
+            background: linear-gradient(145deg, #1a1a2e, #2d2d44);
             padding: 30px;
             border-radius: 20px;
             margin-bottom: 40px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
         }
         
@@ -88,7 +89,7 @@
             padding: 12px 24px;
             border: none;
             border-radius: 30px;
-            background: linear-gradient(45deg, #1e88e5, #1976d2);
+            background: linear-gradient(45deg, #0066ff, #0099cc);
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -96,8 +97,650 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
         }
         
         .filter-btn:hover, .filter-btn.active {
-            background: linear-gradient
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        @media (min-width: 1400px) {
+            .games-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1100px) and (max-width: 1399px) {
+            .games-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 800px) and (max-width: 1099px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .game-card {
+            background: linear-gradient(145deg, #1a1a2e, #2d2d44);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+        
+        .game-header {
+            padding: 20px;
+            background: linear-gradient(45deg, #0066ff, #0099cc);
+            color: white;
+            position: relative;
+        }
+        
+        .game-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        
+        .game-category {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+        
+        .game-preview {
+            position: relative;
+            background: #0f1419;
+        }
+        
+        .game-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .game-card:hover .game-overlay {
+            opacity: 1;
+        }
+        
+        .play-button {
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .share-btn {
+            background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        
+        .share-btn.facebook:hover { 
+            background: #1877f2; 
+            border-color: #1877f2;
+        }
+        .share-btn.twitter:hover { 
+            background: #1da1f2; 
+            border-color: #1da1f2;
+        }
+        .share-btn.whatsapp:hover { 
+            background: #25d366; 
+            border-color: #25d366;
+        }
+        .share-btn.copy:hover { 
+            background: #00d4ff; 
+            border-color: #00d4ff;
+        }
+        
+        .game-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, #1a1a2e, #2d2d44);
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .modal-header {
+            padding: 20px;
+            background: linear-gradient(45deg, #0066ff, #0099cc);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .game-frame {
+            flex: 1;
+            border: none;
+            width: 100%;
+        }
+        
+        .stats {
+            background: linear-gradient(145deg, #1a1a2e, #2d2d44);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stats h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .stats p {
+            font-size: 1.1em;
+            color: #cccccc;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #cccccc;
+            padding: 30px 20px;
+            opacity: 0.8;
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            display: none;
+            z-index: 1001;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        @media (max-width: 799px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 220px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .header p {
+                font-size: 1.1em;
+            }
+            
+            .game-image {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .game-card {
+                margin: 0 5px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 Free Online Games</h1>
+            <p>Play the best free games instantly - No downloads required!</p>
+        </div>
+        
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Games</button>
+                <button class="filter-btn" data-category="casual">Casual</button>
+                <button class="filter-btn" data-category="shooting">Shooting</button>
+                <button class="filter-btn" data-category="driving">Driving</button>
+                <button class="filter-btn" data-category="simulation">Simulation</button>
+                <button class="filter-btn" data-category="beauty">Beauty</button>
+            </div>
+        </div>
+        
+        <div class="games-grid" id="gamesGrid">
+            <!-- Game cards will be dynamically generated by JavaScript -->
+        </div>
+        
+        <div class="stats">
+            <h3>🎯 Game Statistics</h3>
+            <p>Total Games: <span id="totalGames">12</span> | Games Played Today: <span id="playCount">0</span></p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 Online Gaming Platform - Enjoy gaming responsibly!</p>
+        </div>
+    </div>
+    
+    <!-- Game Modal -->
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Game Title</h2>
+                <button class="close-btn" onclick="closeGame()">&times;</button>
+            </div>
+            <iframe class="game-frame" id="gameFrame" src=""></iframe>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+    
+    <script>
+        // Game data
+        const games = [
+            {
+                id: 1,
+                name: "Street Food Simulator",
+                iframe: "https://www.crazygames.com/embed/street-food-simulator",
+                category: "simulation",
+                image: "https://imgs.crazygames.com/street-food-simulator_16x9/20250611102141/street-food-simulator_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 2,
+                name: "Gaz to the Moon",
+                iframe: "https://www.crazygames.com/embed/gaz-to-the-moon",
+                category: "casual",
+                image: "https://imgs.crazygames.com/gaz-to-the-moon_16x9/20250611054028/gaz-to-the-moon_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 3,
+                name: "Fortzone Battle Royale",
+                iframe: "https://www.crazygames.com/embed/fortzone-battle-royale-xkd",
+                category: "shooting",
+                image: "https://imgs.crazygames.com/fortzone-battle-royale-xkd_16x9/20250513044222/fortzone-battle-royale-xkd_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 4,
+                name: "Slice Master",
+                iframe: "https://www.crazygames.com/embed/slice-master",
+                category: "casual",
+                image: "https://imgs.crazygames.com/slice-master_16x9/20240731033229/slice-master_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 5,
+                name: "Count Masters: Stickman Games",
+                iframe: "https://www.crazygames.com/embed/count-masters-stickman-games",
+                category: "casual",
+                image: "https://imgs.crazygames.com/count-masters-stickman-games_16x9/20250220041115/count-masters-stickman-games_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 6,
+                name: "Supermarket Simulator: Store Manager",
+                iframe: "https://www.crazygames.com/embed/supermarket-simulator-cashier-game",
+                category: "simulation",
+                image: "https://imgs.crazygames.com/supermarket-simulator-cashier-game_16x9/20250317102932/supermarket-simulator-cashier-game_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 7,
+                name: "Dalgona Candy",
+                iframe: "https://www.crazygames.com/embed/dalgona-candy-honeycomb-cookie-kam",
+                category: "casual",
+                image: "https://imgs.crazygames.com/dalgona-candy-honeycomb-cookie-kam_16x9/20250521050634/dalgona-candy-honeycomb-cookie-kam_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 8,
+                name: "Night City Racing",
+                iframe: "https://www.crazygames.com/embed/night-city-racing",
+                category: "driving",
+                image: "https://imgs.crazygames.com/night-city-racing/20230127195620/night-city-racing-cover?metadata=none&quality=70"
+            },
+            {
+                id: 9,
+                name: "Bus Driver",
+                iframe: "https://www.crazygames.com/embed/city-bus-driver",
+                category: "driving",
+                image: "https://imgs.crazygames.com/city-bus-driver_16x9/20240318045942/city-bus-driver_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 10,
+                name: "Granny's Return",
+                iframe: "https://www.crazygames.com/embed/bad-cat---granny-s-return",
+                category: "casual",
+                image: "https://imgs.crazygames.com/bad-cat---granny-s-return_16x9/20250409102849/bad-cat---granny-s-return_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 11,
+                name: "Mean Girls Graduation Day",
+                iframe: "https://www.crazygames.com/embed/mean-girls-graduation-day",
+                category: "beauty",
+                image: "https://imgs.crazygames.com/mean-girls-graduation-day_16x9/20250604072140/mean-girls-graduation-day_16x9-cover?metadata=none&quality=70"
+            },
+            {
+                id: 12,
+                name: "Monster Survivors",
+                iframe: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
+                category: "casual",
+                image: "/api/placeholder/400/280"
+            }
+        ];
+        
+        let currentFilter = 'all';
+        let playCount = parseInt(localStorage.getItem('playCount')) || 0;
+        
+        // Update play count display
+        document.getElementById('playCount').textContent = playCount;
+        document.getElementById('totalGames').textContent = games.length;
+        
+        // Render games grid
+        function renderGames(gamesToShow = games) {
+            const gamesGrid = document.getElementById('gamesGrid');
+            
+            gamesGrid.innerHTML = gamesToShow.map(game => `
+                <div class="game-card" data-category="${game.category}" onclick="playGame(${game.id}, '${game.name}', '${game.iframe}')">
+                    <div class="game-header">
+                        <div class="game-title">${game.name}</div>
+                        <span class="game-category">${getCategoryName(game.category)}</span>
+                    </div>
+                    <div class="game-preview">
+                        <img src="${game.image}" alt="${game.name}" class="game-image" loading="lazy">
+                        <div class="game-overlay">
+                            <button class="play-button" onclick="event.stopPropagation(); playGame(${game.id}, '${game.name}', '${game.iframe}')">
+                                ▶ Play Game
+                            </button>
+                            <div class="share-buttons">
+                                <div class="share-btn facebook" onclick="event.stopPropagation(); shareGame('facebook', '${game.name}', ${game.id})" title="Share on Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </div>
+                                <div class="share-btn twitter" onclick="event.stopPropagation(); shareGame('twitter', '${game.name}', ${game.id})" title="Share on Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                <div class="share-btn whatsapp" onclick="event.stopPropagation(); shareGame('whatsapp', '${game.name}', ${game.id})" title="Share on WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="share-btn copy" onclick="event.stopPropagation(); copyGameLink('${game.name}', ${game.id})" title="Copy Link">
+                                    <i class="fas fa-link"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Get category display name
+        function getCategoryName(category) {
+            const categoryNames = {
+                'casual': 'Casual',
+                'shooting': 'Shooting',
+                'driving': 'Driving',
+                'simulation': 'Simulation',
+                'beauty': 'Beauty'
+            };
+            return categoryNames[category] || category;
+        }
+        
+        // Filter games
+        function filterGames(category) {
+            currentFilter = category;
+            const filteredGames = category === 'all' ? games : games.filter(game => game.category === category);
+            renderGames(filteredGames);
+            
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+            
+            // Send filter event to Plausible
+            if (window.plausible) {
+                window.plausible('Game Filter', {props: {category: category}});
+            }
+        }
+        
+        // Share game function
+        function shareGame(platform, gameName, gameId) {
+            const url = window.location.href;
+            const text = `Check out this awesome game: ${gameName}!`;
+            
+            switch(platform) {
+                case 'facebook':
+                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank');
+                    break;
+                case 'twitter':
+                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                    break;
+                case 'whatsapp':
+                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+                    break;
+            }
+            
+            // Track share event
+            if (window.plausible) {
+                window.plausible('Game Share', {props: {platform: platform, game: gameName}});
+            }
+        }
+        
+        // Copy game link
+        function copyGameLink(gameName, gameId) {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('Link copied to clipboard!');
+                
+                // Track copy event
+                if (window.plausible) {
+                    window.plausible('Game Link Copy', {props: {game: gameName}});
+                }
+            });
+        }
+        
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Play game
+        function playGame(gameId, gameName, gameUrl) {
+            const modal = document.getElementById('gameModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const gameFrame = document.getElementById('gameFrame');
+            
+            modalTitle.textContent = gameName;
+            gameFrame.src = gameUrl;
+            modal.style.display = 'block';
+            
+            // Increment play count
+            playCount++;
+            localStorage.setItem('playCount', playCount);
+            document.getElementById('playCount').textContent = playCount;
+            
+            // Send game play event to Plausible
+            if (window.plausible) {
+                window.plausible('Game Play', {props: {game: gameName, gameId: gameId}});
+            }
+            
+            // Prevent page scrolling
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close game
+        function closeGame() {
+            const modal = document.getElementById('gameModal');
+            const gameFrame = document.getElementById('gameFrame');
+            
+            modal.style.display = 'none';
+            gameFrame.src = '';
+            
+            // Restore page scrolling
+            document.body.style.overflow = 'auto';
+            
+            // Send game close event to Plausible
+            if (window.plausible) {
+                window.plausible('Game Close');
+            }
+        }
+        
+        // Add filter button event listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterGames(btn.dataset.category);
+            });
+        });
+        
+        // ESC key to close game
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeGame();
+            }
+        });
+        
+        // Click modal background to close game
+        document.getElementById('gameModal').addEventListener('click', (e) => {
+            if (e.target.id === 'gameModal') {
+                closeGame();
+            }
+        });
+        
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            renderGames();
+            
+            // Send page view event to Plausible
+            if (window.plausible) {
+                window.plausible('pageview');
+            }
+        });
+        
+        // Send event on page leave
+        window.addEventListener('beforeunload', () => {
+            if (window.plausible) {
+                window.plausible('Page Leave', {props: {playCount: playCount}});
+            }
+        });
+    </script>
+</body>
+</html>
