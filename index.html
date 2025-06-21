@@ -83,11 +83,6 @@
             margin-bottom: 15px;
             font-weight: 300;
             color: #d0d0d0;
-            text-shadow: none;
-            background: none;
-            -webkit-background-clip: unset;
-            -webkit-text-fill-color: unset;
-            background-clip: unset;
         }
         
         .header p {
@@ -760,4 +755,6 @@
         window.addEventListener('load', () => {
             renderGames();
             
-            //
+            // Send page view event to Plausible
+            if (window.plausible) {
+                window.
