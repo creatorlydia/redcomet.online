@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Gaming Platform - Free Games</title>
     
-    <!-- Canonical URL - 请将此URL替换为您的实际域名 -->
+    <!-- Canonical URL - https://redcomet.online/ -->
     <link rel="canonical" href="https://redcomet.online/">
     
     <!-- SEO Meta Tags -->
@@ -728,4 +728,34 @@
             // Restore page scrolling
             document.body.style.overflow = 'auto';
             
-            // Send game close event to Plausible
+            // Send game close event to Plausible            btn.addEventListener('click', () => {
+                filterGames(btn.dataset.category);
+            });
+        });
+        
+        // ESC key to close game
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeGame();
+            }
+        });
+        
+        // Click modal background to close game
+        document.getElementById('gameModal').addEventListener('click', (e) => {
+            if (e.target.id === 'gameModal') {
+                closeGame();
+            }
+        });
+        
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            renderGames();
+            
+            // Send page view event to Plausible
+            if (window.plausible) {
+                window.plausible('pageview');
+            }
+        });
+        
+        // Send event on page leave
+        window.
