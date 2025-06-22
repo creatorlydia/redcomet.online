@@ -3,7 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Gaming Platform - Free Games</title>
+    
+    <!-- Basic SEO Meta Tags -->
+    <title>Free Online Games - Play 12+ Fun Games Instantly | Red Comet Gaming</title>
+    <meta name="description" content="Play 12+ free online games instantly! No downloads required. Enjoy casual games, shooting games, driving simulators, and more. Start playing now!">
+    <meta name="keywords" content="free online games, casual games, shooting games, driving games, simulation games, browser games, instant play games, no download games">
+    <meta name="author" content="Red Comet Gaming">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://redcomet.online/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://redcomet.online/">
+    <meta property="og:title" content="Free Online Games - Play 12+ Fun Games Instantly">
+    <meta property="og:description" content="Play 12+ free online games instantly! No downloads required. Enjoy casual games, shooting games, driving simulators, and more.">
+    <meta property="og:image" content="https://redcomet.online/images/og-gaming-platform.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Red Comet Gaming">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://redcomet.online/">
+    <meta name="twitter:title" content="Free Online Games - Play 12+ Fun Games Instantly">
+    <meta name="twitter:description" content="Play 12+ free online games instantly! No downloads required. Enjoy casual games, shooting games, driving simulators, and more.">
+    <meta name="twitter:image" content="https://redcomet.online/images/og-gaming-platform.jpg">
+    <meta name="twitter:creator" content="@redcometgaming">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#0066ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Red Comet Gaming",
+        "url": "https://redcomet.online/",
+        "description": "Free online gaming platform with 12+ instant-play games",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://redcomet.online/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Red Comet Gaming",
+            "url": "https://redcomet.online/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://redcomet.online/images/logo.png"
+            }
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "GameServer",
+        "name": "Red Comet Gaming Platform",
+        "description": "Free online gaming platform offering casual games, shooting games, driving simulators, and simulation games",
+        "url": "https://redcomet.online/",
+        "game": [
+            {
+                "@type": "VideoGame",
+                "name": "Street Food Simulator",
+                "genre": "Simulation",
+                "gameLocation": "https://redcomet.online/",
+                "description": "Manage your own street food business in this engaging simulation game"
+            },
+            {
+                "@type": "VideoGame", 
+                "name": "Gaz to the Moon",
+                "genre": "Casual",
+                "gameLocation": "https://redcomet.online/",
+                "description": "Casual space adventure game with engaging gameplay"
+            },
+            {
+                "@type": "VideoGame",
+                "name": "Fortzone Battle Royale", 
+                "genre": "Shooting",
+                "gameLocation": "https://redcomet.online/",
+                "description": "Intense battle royale shooting game with multiplayer action"
+            }
+        ]
+    }
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-02KTJL17PR"></script>
@@ -43,6 +134,27 @@
             padding: 20px;
         }
         
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            padding: 10px 0 20px;
+            font-size: 14px;
+            color: #cccccc;
+        }
+        
+        .breadcrumb a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 8px;
+            color: #666;
+        }
+        
         .header {
             text-align: center;
             color: #ffffff;
@@ -53,8 +165,12 @@
         .header h1 {
             font-size: 3.5em;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
             font-weight: 700;
-            color: #ffffff;
+            background: linear-gradient(45deg, #00d4ff, #0099cc, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .header p {
@@ -72,6 +188,13 @@
             margin-bottom: 40px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .filter-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #00d4ff;
+            font-size: 1.5em;
         }
         
         .filter-buttons {
@@ -100,6 +223,13 @@
             background: linear-gradient(45deg, #00d4ff, #0099cc);
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+        
+        .games-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #00d4ff;
+            font-size: 2em;
         }
         
         .games-grid {
@@ -346,11 +476,63 @@
             color: #cccccc;
         }
         
+        /* SEO Content Section */
+        .seo-content {
+            background: linear-gradient(145deg, #1a1a2e, #2d2d44);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .seo-content h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .seo-content h3 {
+            color: #0099cc;
+            margin: 20px 0 10px;
+            font-size: 1.3em;
+        }
+        
+        .seo-content p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .seo-content ul {
+            color: #cccccc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .seo-content li {
+            margin-bottom: 8px;
+        }
+        
         .footer {
             text-align: center;
             color: #cccccc;
             padding: 30px 20px;
             opacity: 0.8;
+        }
+        
+        .footer nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer nav a {
+            color: #00d4ff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer nav a:hover {
+            text-decoration: underline;
         }
         
         .toast {
@@ -391,6 +573,10 @@
             .game-image {
                 height: 200px;
             }
+            
+            .seo-content {
+                padding: 20px;
+            }
         }
         
         @media (max-width: 400px) {
@@ -406,337 +592,143 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://redcomet.online/">Home</a>
+            <span>›</span>
+            <span>Free Online Games</span>
+        </nav>
+        
+        <header class="header">
             <h1>🎮 Free Online Games</h1>
             <p>Play the best free games instantly - No downloads required!</p>
-        </div>
+        </header>
         
-        <div class="filter-section">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-category="all">All Games</button>
-                <button class="filter-btn" data-category="casual">Casual</button>
-                <button class="filter-btn" data-category="shooting">Shooting</button>
-                <button class="filter-btn" data-category="driving">Driving</button>
-                <button class="filter-btn" data-category="simulation">Simulation</button>
-                <button class="filter-btn" data-category="beauty">Beauty</button>
+        <section class="filter-section" aria-label="Game Categories">
+            <h2>Browse Games by Category</h2>
+            <div class="filter-buttons" role="tablist">
+                <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">All Games</button>
+                <button class="filter-btn" data-category="casual" role="tab">Casual</button>
+                <button class="filter-btn" data-category="shooting" role="tab">Shooting</button>
+                <button class="filter-btn" data-category="driving" role="tab">Driving</button>
+                <button class="filter-btn" data-category="simulation" role="tab">Simulation</button>
+                <button class="filter-btn" data-category="beauty" role="tab">Beauty</button>
             </div>
-        </div>
+        </section>
         
-        <div class="games-grid" id="gamesGrid">
-            <!-- Game cards will be dynamically generated by JavaScript -->
-        </div>
+        <section class="games-section" aria-label="Game Collection">
+            <h2>Popular Free Online Games</h2>
+            <div class="games-grid" id="gamesGrid" role="main">
+                <!-- Game cards will be dynamically generated by JavaScript -->
+            </div>
+        </section>
         
-        <div class="stats">
+        <section class="stats" aria-label="Gaming Statistics">
             <h3>🎯 Game Statistics</h3>
             <p>Total Games: <span id="totalGames">12</span> | Games Played Today: <span id="playCount">0</span></p>
-        </div>
+        </section>
         
-        <div class="footer">
-            <p>© 2024 Online Gaming Platform - Enjoy gaming responsibly!</p>
-        </div>
+        <!-- SEO Content Section -->
+        <section class="seo-content">
+            <h2>Why Choose Our Free Online Gaming Platform?</h2>
+            <p>Welcome to the ultimate destination for free online games! Our platform offers an extensive collection of high-quality browser-based games that you can play instantly without any downloads or installations. Whether you're looking for casual entertainment or intense gaming sessions, we have something for everyone.</p>
+            
+            <h3>🎮 Diverse Game Categories</h3>
+            <p>Explore our carefully curated selection of games across multiple genres:</p>
+            <ul>
+                <li><strong>Casual Games:</strong> Perfect for quick breaks and relaxation, featuring engaging gameplay suitable for all ages</li>
+                <li><strong>Shooting Games:</strong> Action-packed adventures with intense battles and strategic combat</li>
+                <li><strong>Driving Games:</strong> Experience thrilling racing and driving simulations with realistic physics</li>
+                <li><strong>Simulation Games:</strong> Manage virtual businesses, cities, and scenarios in detailed simulation environments</li>
+                <li><strong>Beauty Games:</strong> Creative styling and makeover games for fashion and beauty enthusiasts</li>
+            </ul>
+            
+            <h3>🚀 Instant Play Technology</h3>
+            <p>All our games are optimized for modern web browsers, ensuring smooth gameplay across desktop and mobile devices. No registration required - simply click and play! Our platform supports the latest web technologies to deliver console-quality gaming experiences directly in your browser.</p>
+            
+            <h3>🌟 Featured Games</h3>
+            <p>Don't miss our most popular titles including Street Food Simulator, Fortzone Battle Royale, and Slice Master. Each game is handpicked for quality, entertainment value, and replay potential. New games are added regularly to keep your gaming experience fresh and exciting.</p>
+            
+            <h3>📱 Cross-Platform Compatibility</h3>
+            <p>Play on any device! Our responsive design ensures optimal gaming performance whether you're on a desktop computer, tablet, or smartphone. All games are fully optimized for touch controls and various screen sizes.</p>
+        </section>
+        
+        <footer class="footer">
+            <nav aria-label="Footer Navigation">
+                <a href="#privacy" rel="nofollow">Privacy Policy</a>
+                <a href="#terms" rel="nofollow">Terms of Service</a>
+                <a href="#contact" rel="nofollow">Contact Us</a>
+                <a href="#about" rel="nofollow">About</a>
+            </nav>
+            <p>© 2024 Red Comet Gaming - Enjoy gaming responsibly! | <a href="mailto:info@redcomet.online">Contact Us</a></p>
+        </footer>
     </div>
     
     <!-- Game Modal -->
-    <div class="game-modal" id="gameModal">
+    <div class="game-modal" id="gameModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title" id="modalTitle">Game Title</h2>
-                <button class="close-btn" onclick="closeGame()">&times;</button>
+                <button class="close-btn" onclick="closeGame()" aria-label="Close game">&times;</button>
             </div>
-            <iframe class="game-frame" id="gameFrame" src=""></iframe>
+            <iframe class="game-frame" id="gameFrame" src="" title="Game Player" aria-label="Game iframe"></iframe>
         </div>
     </div>
     
     <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
+    <div class="toast" id="toast" role="alert" aria-live="polite"></div>
     
     <script>
-        // Game data
+        // Game data with enhanced SEO information
         const games = [
             {
                 id: 1,
                 name: "Street Food Simulator",
                 iframe: "https://www.crazygames.com/embed/street-food-simulator",
                 category: "simulation",
-                image: "https://imgs.crazygames.com/street-food-simulator_16x9/20250611102141/street-food-simulator_16x9-cover?metadata=none&quality=70"
+                image: "https://imgs.crazygames.com/street-food-simulator_16x9/20250611102141/street-food-simulator_16x9-cover?metadata=none&quality=70",
+                description: "Manage your own street food business in this engaging simulation game. Cook, serve customers, and expand your food empire!",
+                keywords: "street food simulator, cooking game, business simulation, food management game"
             },
             {
                 id: 2,
                 name: "Gaz to the Moon",
                 iframe: "https://www.crazygames.com/embed/gaz-to-the-moon",
                 category: "casual",
-                image: "https://imgs.crazygames.com/gaz-to-the-moon_16x9/20250611054028/gaz-to-the-moon_16x9-cover?metadata=none&quality=70"
+                image: "https://imgs.crazygames.com/gaz-to-the-moon_16x9/20250611054028/gaz-to-the-moon_16x9-cover?metadata=none&quality=70",
+                description: "Join Gaz on an epic space adventure to reach the moon in this fun casual game with engaging physics-based gameplay.",
+                keywords: "space game, casual adventure, moon mission, physics game"
             },
             {
                 id: 3,
                 name: "Fortzone Battle Royale",
                 iframe: "https://www.crazygames.com/embed/fortzone-battle-royale-xkd",
                 category: "shooting",
-                image: "https://imgs.crazygames.com/fortzone-battle-royale-xkd_16x9/20250513044222/fortzone-battle-royale-xkd_16x9-cover?metadata=none&quality=70"
+                image: "https://imgs.crazygames.com/fortzone-battle-royale-xkd_16x9/20250513044222/fortzone-battle-royale-xkd_16x9-cover?metadata=none&quality=70",
+                description: "Intense battle royale shooting game with multiplayer action. Survive, fight, and be the last player standing!",
+                keywords: "battle royale, shooting game, multiplayer, survival game, combat"
             },
             {
                 id: 4,
                 name: "Slice Master",
                 iframe: "https://www.crazygames.com/embed/slice-master",
                 category: "casual",
-                image: "https://imgs.crazygames.com/slice-master_16x9/20240731033229/slice-master_16x9-cover?metadata=none&quality=70"
+                image: "https://imgs.crazygames.com/slice-master_16x9/20240731033229/slice-master_16x9-cover?metadata=none&quality=70",
+                description: "Master the art of slicing in this satisfying casual game. Perfect timing and precision are key to success!",
+                keywords: "slice game, casual puzzle, timing game, skill-based game"
             },
             {
                 id: 5,
                 name: "Count Masters: Stickman Games",
                 iframe: "https://www.crazygames.com/embed/count-masters-stickman-games",
                 category: "casual",
-                image: "https://imgs.crazygames.com/count-masters-stickman-games_16x9/20250220041115/count-masters-stickman-games_16x9-cover?metadata=none&quality=70"
+                image: "https://imgs.crazygames.com/count-masters-stickman-games_16x9/20250220041115/count-masters-stickman-games_16x9-cover?metadata=none&quality=70",
+                description: "Lead your stickman army through challenging obstacles in this addictive runner game with strategic gameplay.",
+                keywords: "stickman game, runner game, strategy, crowd control, casual game"
             },
             {
                 id: 6,
                 name: "Supermarket Simulator: Store Manager",
                 iframe: "https://www.crazygames.com/embed/supermarket-simulator-cashier-game",
                 category: "simulation",
-                image: "https://imgs.crazygames.com/supermarket-simulator-cashier-game_16x9/20250317102932/supermarket-simulator-cashier-game_16x9-cover?metadata=none&quality=70"
-            },
-            {
-                id: 7,
-                name: "Dalgona Candy",
-                iframe: "https://www.crazygames.com/embed/dalgona-candy-honeycomb-cookie-kam",
-                category: "casual",
-                image: "https://imgs.crazygames.com/dalgona-candy-honeycomb-cookie-kam_16x9/20250521050634/dalgona-candy-honeycomb-cookie-kam_16x9-cover?metadata=none&quality=70"
-            },
-            {
-                id: 8,
-                name: "Night City Racing",
-                iframe: "https://www.crazygames.com/embed/night-city-racing",
-                category: "driving",
-                image: "https://imgs.crazygames.com/night-city-racing/20230127195620/night-city-racing-cover?metadata=none&quality=70"
-            },
-            {
-                id: 9,
-                name: "Bus Driver",
-                iframe: "https://www.crazygames.com/embed/city-bus-driver",
-                category: "driving",
-                image: "https://imgs.crazygames.com/city-bus-driver_16x9/20240318045942/city-bus-driver_16x9-cover?metadata=none&quality=70"
-            },
-            {
-                id: 10,
-                name: "Granny's Return",
-                iframe: "https://www.crazygames.com/embed/bad-cat---granny-s-return",
-                category: "casual",
-                image: "https://imgs.crazygames.com/bad-cat---granny-s-return_16x9/20250409102849/bad-cat---granny-s-return_16x9-cover?metadata=none&quality=70"
-            },
-            {
-                id: 11,
-                name: "Mean Girls Graduation Day",
-                iframe: "https://www.crazygames.com/embed/mean-girls-graduation-day",
-                category: "beauty",
-                image: "https://imgs.crazygames.com/mean-girls-graduation-day_16x9/20250604072140/mean-girls-graduation-day_16x9-cover?metadata=none&quality=70"
-            },
-            {
-                id: 12,
-                name: "Monster Survivors",
-                iframe: "https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html",
-                category: "casual",
-                image: "/api/placeholder/400/280"
-            }
-        ];
-        
-        let currentFilter = 'all';
-        let playCount = parseInt(localStorage.getItem('playCount')) || 0;
-        
-        // Update play count display
-        document.getElementById('playCount').textContent = playCount;
-        document.getElementById('totalGames').textContent = games.length;
-        
-        // Render games grid
-        function renderGames(gamesToShow = games) {
-            const gamesGrid = document.getElementById('gamesGrid');
-            
-            gamesGrid.innerHTML = gamesToShow.map(game => `
-                <div class="game-card" data-category="${game.category}" onclick="playGame(${game.id}, '${game.name}', '${game.iframe}')">
-                    <div class="game-header">
-                        <div class="game-title">${game.name}</div>
-                        <span class="game-category">${getCategoryName(game.category)}</span>
-                    </div>
-                    <div class="game-preview">
-                        <img src="${game.image}" alt="${game.name}" class="game-image" loading="lazy">
-                        <div class="game-overlay">
-                            <button class="play-button" onclick="event.stopPropagation(); playGame(${game.id}, '${game.name}', '${game.iframe}')">
-                                ▶ Play Game
-                            </button>
-                            <div class="share-buttons">
-                                <div class="share-btn facebook" onclick="event.stopPropagation(); shareGame('facebook', '${game.name}', ${game.id})" title="Share on Facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </div>
-                                <div class="share-btn twitter" onclick="event.stopPropagation(); shareGame('twitter', '${game.name}', ${game.id})" title="Share on Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </div>
-                                <div class="share-btn whatsapp" onclick="event.stopPropagation(); shareGame('whatsapp', '${game.name}', ${game.id})" title="Share on WhatsApp">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div class="share-btn copy" onclick="event.stopPropagation(); copyGameLink('${game.name}', ${game.id})" title="Copy Link">
-                                    <i class="fas fa-link"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        // Get category display name
-        function getCategoryName(category) {
-            const categoryNames = {
-                'casual': 'Casual',
-                'shooting': 'Shooting',
-                'driving': 'Driving',
-                'simulation': 'Simulation',
-                'beauty': 'Beauty'
-            };
-            return categoryNames[category] || category;
-        }
-        
-        // Filter games
-        function filterGames(category) {
-            currentFilter = category;
-            const filteredGames = category === 'all' ? games : games.filter(game => game.category === category);
-            renderGames(filteredGames);
-            
-            // Update button states
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`[data-category="${category}"]`).classList.add('active');
-            
-            // Send filter event to Plausible
-            if (window.plausible) {
-                window.plausible('Game Filter', {props: {category: category}});
-            }
-        }
-        
-        // Share game function
-        function shareGame(platform, gameName, gameId) {
-            const url = window.location.href;
-            const text = `Check out this awesome game: ${gameName}!`;
-            
-            switch(platform) {
-                case 'facebook':
-                    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank');
-                    break;
-                case 'twitter':
-                    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-                    break;
-                case 'whatsapp':
-                    window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
-                    break;
-            }
-            
-            // Track share event
-            if (window.plausible) {
-                window.plausible('Game Share', {props: {platform: platform, game: gameName}});
-            }
-        }
-        
-        // Copy game link
-        function copyGameLink(gameName, gameId) {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(() => {
-                showToast('Link copied to clipboard!');
-                
-                // Track copy event
-                if (window.plausible) {
-                    window.plausible('Game Link Copy', {props: {game: gameName}});
-                }
-            });
-        }
-        
-        // Show toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.style.display = 'block';
-            
-            setTimeout(() => {
-                toast.style.display = 'none';
-            }, 3000);
-        }
-        
-        // Play game
-        function playGame(gameId, gameName, gameUrl) {
-            const modal = document.getElementById('gameModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const gameFrame = document.getElementById('gameFrame');
-            
-            modalTitle.textContent = gameName;
-            gameFrame.src = gameUrl;
-            modal.style.display = 'block';
-            
-            // Increment play count
-            playCount++;
-            localStorage.setItem('playCount', playCount);
-            document.getElementById('playCount').textContent = playCount;
-            
-            // Send game play event to Plausible
-            if (window.plausible) {
-                window.plausible('Game Play', {props: {game: gameName, gameId: gameId}});
-            }
-            
-            // Prevent page scrolling
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Close game
-        function closeGame() {
-            const modal = document.getElementById('gameModal');
-            const gameFrame = document.getElementById('gameFrame');
-            
-            modal.style.display = 'none';
-            gameFrame.src = '';
-            
-            // Restore page scrolling
-            document.body.style.overflow = 'auto';
-            
-            // Send game close event to Plausible
-            if (window.plausible) {
-                window.plausible('Game Close');
-            }
-        }
-        
-        // Add filter button event listeners
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterGames(btn.dataset.category);
-            });
-        });
-        
-        // ESC key to close game
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeGame();
-            }
-        });
-        
-        // Click modal background to close game
-        document.getElementById('gameModal').addEventListener('click', (e) => {
-            if (e.target.id === 'gameModal') {
-                closeGame();
-            }
-        });
-        
-        // Initialize on page load
-        window.addEventListener('load', () => {
-            renderGames();
-            
-            // Send page view event to Plausible
-            if (window.plausible) {
-                window.plausible('pageview');
-            }
-        });
-        
-        // Send event on page leave
-        window.addEventListener('beforeunload', () => {
-            if (window.plausible) {
-                window.plausible('Page Leave', {props: {playCount: playCount}});
-            }
-        });
-    </script>
-</body>
-</html>
+                image: "https://imgs.c
