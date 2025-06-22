@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "Money Maker Idle",
+        "iframe": "https://www.crazygames.com/game/money-maker-idle",
+        "category": "Clicker",
+        "image": "https://imgs.crazygames.com/money-maker-idle_16x9/20250609092756/money-maker-idle_16x9-cover?metadata=none&quality=70",
+        "description": "Money Maker Idle is a fast-paced tapping game where you grow a money-printing empire from a humble machine into a financial powerhouse. Upgrade production lanes, unlock slicing bonuses, and trigger cash storms to accelerate your fortune. With every tap, you edge closer to billionaire status in a whirlwind of wealth, strategy, and satisfying money-making chaos.",
+    },
+    {
+        "id": 2,
+        "name": "Click To Grill",
+        "iframe": "https://www.crazygames.com/game/click-to-grill",
+        "category": "Clicker",
+        "image": "https://imgs.crazygames.com/click-to-grill_16x9/20250528044730/click-to-grill_16x9-cover?metadata=none&quality=70",
+        "description": "Click To Grill is a wildly satisfying idle clicker that lets you turn up the heat on the unexpected. You’ll tap your way through an ever-expanding buffet of bizarre barbecue items—from steaks to the totally bizarre. Keep the flames roaring as you earn upgrades and turn every strange item into a perfectly charred masterpiece.",
+    },
+    {
+        "id": 3,
+        "name": "Grass Land",
+        "iframe": "https://www.crazygames.com/game/grass-land-cei",
+        "category": "Casual",
+        "image": "https://imgs.crazygames.com/grass-land-cei_16x9/20250512053720/grass-land-cei_16x9-cover?metadata=none&quality=70",
+        "description": "Grass Land is a vibrant exploration game that drops you into a sprawling world of thick greenery and hidden surprises. Take control of your grass cutter, uncover valuable resources beneath the overgrowth, and build up your base as you roam the fields. Stay sharp, move fast, and make the most of every patch of grass you find.",
+    },
+    {
+        "id": 4,
+        "name": "Pottery Master",
+        "iframe": "https://www.crazygames.com/game/pottery-master",
+        "category": "Casual",
+        "image": "https://imgs.crazygames.com/pottery-master_16x9/20250515024518/pottery-master_16x9-cover?metadata=none&quality=70",
+        "description": "Pottery Master is a calming, creative journey where you sculpt, shape, and paint your way to ceramic perfection. Use your hands and tools to mold clay into beautiful forms, then bring them to life with color and detail. Each piece is a chance to relax, express yourself, and craft a masterpiece in soothing style.",
+    },
+    {
+  
