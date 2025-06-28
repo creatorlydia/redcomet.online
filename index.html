@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7920075768524808"
+     crossorigin="anonymous"></script>
     
     <!-- Basic SEO Meta Tags -->
     <title>Free Online Games - Play 12+ Fun Games Instantly | Red Comet Gaming</title>
@@ -722,4 +724,63 @@
                 name: "Count Masters: Stickman Games",
                 iframe: "https://www.crazygames.com/embed/count-masters-stickman-games",
                 category: "casual",
-                image: "https://imgs.crazygames.com/count-masters-stickman-games_16x9/20250220041115/count-masters-stickman-games_16x
+                image: "https://imgs.crazygames.com/count-masters-stickman-games_16x9/20250220041115/count-masters-stickman-games_16x9-cover?metadata=none&quality=70"
+            }
+        ];
+
+        // Function to create a game card
+        function createGameCard(game) {
+            const card = document.createElement("div");
+            card.className = "game-card";
+            card.innerHTML = `
+                <div class="game-header">
+                    <h3 class="game-title">${game.name}</h3>
+                    <span class="game-category">${game.category.charAt(0).toUpperCase() + game.category.slice(1)}</span>
+                </div>
+                <div class="game-preview">
+                    <img class="game-image" src="${game.image}" alt="${game.name}">
+                    <div class="game-overlay">
+                        <button class="play-button">Play</button>
+                    </div>
+                </div>
+            `;
+
+            // Add event listeners
+            const playButton = card.querySelector(".play-button");
+            playButton.addEventListener("click", () => {
+                openGame(game.iframe);
+            });
+
+            return card;
+        }
+
+        // Function to populate the game grid
+        function populateGameGrid() {
+            const grid = document.getElementById("gamesGrid");
+            grid.innerHTML = "";
+
+            games.forEach(game => {
+                const card = createGameCard(game);
+                grid.appendChild(card);
+            });
+        }
+
+        // Function to open the game modal
+        function openGame(iframeSrc) {
+            const modal = document.getElementById("gameModal");
+            const frame = document.getElementById("gameFrame");
+            frame.src = iframeSrc;
+            modal.style.display = "flex";
+        }
+
+        // Function to close the game modal
+        function closeGame() {
+            const modal = document.getElementById("gameModal");
+            modal.style.display = "none";
+        }
+
+        // Populate the game grid
+        populateGameGrid();
+    </script>
+</body>
+</html>
